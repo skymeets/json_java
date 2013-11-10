@@ -1,0 +1,22 @@
+package jsonic2;
+
+//JSONICをインポート
+import java.util.HashMap;
+import java.util.Map;
+
+import net.arnx.jsonic.JSON;
+
+public class JsonicSample1 {
+	public static void main(String[] args) {
+
+		Map<String, String> data = new HashMap<String, String>();
+        data.put("FirstName", "Kenichiro");
+        data.put("LastName", "Murata");
+
+        // JSON形式にエンコード
+        String script = JSON.encode(data);
+
+		System.out.println("script : " + script);
+
+	}
+}

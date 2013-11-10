@@ -1,0 +1,26 @@
+package jsonic3;
+
+import net.arnx.jsonic.JSON;
+
+public class JsonicSample {
+	public static void main(String[] args) {
+
+//		final String hoges = "{\"hoges\":[{\"name\":\"test\",\"age\":1},{\"name\":\"sample2\",\"age\":2}]}";
+
+//		final String tweetStr = "{\"tweetList\":[{\"message\":\"hello everyone!\",\"user\":{\"name\":\"taro yamada\",\"profile_image_url\":\"taro_url\"}}]}" ;
+//										",{\"text\":\"bye everyone!\",\"user\":{\"name\":\"hanako yamada\",\"profile_image_url\":\"http://hanako.com\"}}]}";
+
+		final String tweetStr = "[{\"message\":\"hello everyone!\",\"user\":{\"name\":\"taro yamada\"}},{\"message\":\"bye everyone!\",\"user\":{\"name\":\"hanako yamada\"}}]";
+
+		
+//		final String tweetStr = "{\"tweetList\":[{\"message\":\"hello everyone\"}]}" ;
+
+		TweetList tweetList = JSON.decode(tweetStr, TweetList.class);
+
+		for ( Tweet tmp : tweetList.getTweetList()) {
+			System.out.println("message:" + tmp.getMessage());
+			System.out.println("name:" + tmp.getUser().getName());
+			System.out.println("url:" + tmp.getUser().getProfile_image_url());
+		}
+	}
+}
